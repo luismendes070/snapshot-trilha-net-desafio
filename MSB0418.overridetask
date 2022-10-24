@@ -1,0 +1,10 @@
+<UsingTask TaskName="MyTask" AssemblyName="My.Assembly" TaskFactory="MyTaskFactory">
+       <ParameterGroup>
+              <Parameter1 ParameterType="System.String" Required="False" Output="False"/>
+              <Parameter2 ParameterType="System.Int" Required="True" Output="False"/>
+              ...
+</ParameterGroup>
+       <Task>
+      ... Task factory-specific data ...
+       </Task>
+</UsingTask>
