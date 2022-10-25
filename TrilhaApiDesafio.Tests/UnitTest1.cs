@@ -8,22 +8,23 @@ namespace TrilhaApiDesafio.Tests
     [TestClass]
     public class UnitTest1
     {
-[Fact]
-public async Task Get_API() {
+
+	[Fact]
+	public async Task Get_API() 
+	{
+
 	// Arrange
 	var client = new RestClient("http://localhost:3010/api/private");
-var request = new RestRequest(Method.GET);
-request.AddHeader("authorization", "Bearer YOUR_ACCESS_TOKEN");
-IRestResponse response = client.Execute(request);
+	var request = new RestRequest(Method.GET);
+	request.AddHeader("authorization", "Bearer YOUR_ACCESS_TOKEN");
+	IRestResponse response = client.Execute(request);
 
-// Act
+	// Act
 
-// Assert
+	// Assert
 
-Assert.Fail(true);
-
-}
-
+	Assert.Fail(true);
+	}
 
         	[Fact]
 			public async Task GetVendas_Returns_The_Correct_Number_Of_Vendas()
@@ -32,7 +33,7 @@ Assert.Fail(true);
 				int count = 5;
 				var fakeVendas = A.CollectionOfDummy<Tarefa>(count).AsNumerable();
 				var dataStore = A.Fake<ITarefaDataStore>();
-				A.CallTo( () => dataStore.GetRandomVendas(count)).Returns(Task.FromResult(fakeRecipes));
+				A.CallTo( () => dataStore.GetRandomVendas(count)).Returns(Task.FromResult(fakeVendas));
 				var controller = new TarefaController(dataStore);
 				// Act
 				var actionResult = await controller.ObterPorId(count);
